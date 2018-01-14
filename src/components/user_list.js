@@ -4,6 +4,8 @@ import * as actions from '../actions';
 
 //for each user, call renderUser, and put it in an arry
 //renderUser acting like a component
+
+//jsonplaceholder.typicode.com/users
 class UserList extends Component {
   componentWillMount(){
     this.props.fetchUsers();
@@ -21,7 +23,7 @@ class UserList extends Component {
 
   render(){
     return (
-      <div>
+      <div className="user-list">
         {this.props.users.map(this.renderUser)}
       </div>
     );
