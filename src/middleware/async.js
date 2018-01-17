@@ -2,6 +2,7 @@
 //pulling off a dispatch from the argument
 
 //dispatch is a function, makes it rerun the cycle
+//all middleware is conenct with App.js/index.js's 'applyMiddleware' function
 export default function({dispatch}){
   //returns a function with next as an argument,
   //and that function returns a function with a next
@@ -26,6 +27,9 @@ export default function({dispatch}){
         const newAction = {...action, payload:response}
 
         //dispatch means to send it through EVERYTHING again
+        //this is important, so we modularize middleware so that
+        //it won't MATTER what ORDER we put them in, since everytime
+        //they have to do it all again.
         dispatch(newAction);
       });
 
