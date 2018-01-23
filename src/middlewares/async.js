@@ -14,7 +14,7 @@ export default function({dispatch}){
     //here we target the actions that we want, if it's not one we like
     //it'll get caught here and we caught next
     if (!action.payload || !action.payload.then){
-      return next(action)
+      return next(action);
     }
 
     //things to do: make sure the action's promise resolves
@@ -24,7 +24,7 @@ export default function({dispatch}){
         //...action = take all data/properties that the action contains but
         //with a payload of response
         //creating an action with the old type, but replacing the promise with the response
-        const newAction = {...action, payload:response}
+        const newAction = {...action, payload: response};
 
         //dispatch means to send it through EVERYTHING again
         //this is important, so we modularize middleware so that
@@ -33,6 +33,5 @@ export default function({dispatch}){
         dispatch(newAction);
       });
 
-    next(action);
   }
 }

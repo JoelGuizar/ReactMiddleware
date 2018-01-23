@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import App from './components/app';
 import reducers from './reducers';
-import Async from '.middleware/async';
+import Async from './middlewares/async';
 
 //import middleware then apply it here
 const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
