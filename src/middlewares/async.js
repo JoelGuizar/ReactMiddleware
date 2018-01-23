@@ -13,6 +13,8 @@ export default function({dispatch}){
     //checks for payload, or checks if it has already a 'then' to resolve the promise
     //here we target the actions that we want, if it's not one we like
     //it'll get caught here and we caught next
+
+    //make sure to handle different edge cases so no errors are thrown
     if (!action.payload || !action.payload.then){
       return next(action);
     }
@@ -30,6 +32,8 @@ export default function({dispatch}){
         //this is important, so we modularize middleware so that
         //it won't MATTER what ORDER we put them in, since everytime
         //they have to do it all again.
+        //you either use NEXT or dispatch
+        //next sends it to the next middleware, dispatch sends it to start the cycle again
         dispatch(newAction);
       });
 

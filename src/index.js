@@ -8,6 +8,8 @@ import reducers from './reducers';
 import Async from './middlewares/async';
 
 //import middleware then apply it here
+//it takes as many middlewares as arguments
+//tells redux, "put every action through here first"
 const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 ReactDOM.render(
