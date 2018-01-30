@@ -31,6 +31,9 @@ class UserList extends Component {
 }
 
 function mapStateToProps(state){
+  //refers to the reducer,
+  //you named it users in the Root Reducer, so you need to
+  //call it in that form;
   return { users: state.users }
 }
 
